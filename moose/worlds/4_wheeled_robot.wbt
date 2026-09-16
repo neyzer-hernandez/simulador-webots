@@ -1,0 +1,286 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "dumbbell"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.18063673915593556 0.05119943019511437 0.9822163645627201 2.5985474338324095
+  position 0.3594462891104058 -0.2540275738946651 0.18249976765107534
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+Solid {
+  translation 0 0.47 0.05
+  rotation 1 0 0 -1.5707953071795862
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation -0.541009 -0.0460987 0.0627092
+  rotation -0.5709740567677163 0.5787131530736422 0.5823055151359806 -2.0944
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 0.53 -0.0100012 0.06
+  rotation -0.5773489144741784 0.577350914473882 0.577350978618431 -2.094395307179586
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 1.37771e-07 -0.529318 0.0648236
+  rotation 0.9999999999944509 2.3581499999869142e-06 -2.353179999986942e-06 -1.5707953071795862
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+Robot {
+  children [
+    DistanceSensor {
+      translation 0.105 -0.03 0.01
+      rotation -1 0 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0 1
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+    }
+    DistanceSensor {
+      translation 0.105 0.03 0.01
+      rotation 1 0 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0 1
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.05 0.06 0
+        rotation 1 0 0 1.5708000000000002
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.666667 0.498039
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.02
+          radius 0.04
+        }
+        physics Physics {
+        }
+        angularVelocity -3.644184555016256e-15 0 0
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0.06 0
+        rotation 1 0 0 1.5708000000000002
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0.666667 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "WHEEL2"
+        boundingObject Cylinder {
+          height 0.1
+          radius 0.05
+        }
+        physics Physics {
+        }
+        linearVelocity 0 0 -9.430941613671781e-11
+        angularVelocity -3.644184555016256e-15 0 0
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 -0.06 0
+        rotation 1 0 0 1.5078000000000003
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.666667 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "WHEEL3"
+        boundingObject Cylinder {
+          height 0.1
+          radius 0.05
+        }
+        physics Physics {
+        }
+        linearVelocity 0 0 -9.430941613671781e-11
+        angularVelocity 1.3877787807814457e-15 0 0
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.05 -0.06 0
+      }
+      device [
+        DEF wheel4 RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 -0.06 0
+        rotation 1 0 0 1.5708000000000002
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.666667 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "WHEEL4"
+        boundingObject Cylinder {
+          height 0.1
+          radius 0.05
+        }
+        physics Physics {
+        }
+        linearVelocity 0 0 -9.430941613671781e-11
+        angularVelocity -3.644184555016256e-15 0 0
+      }
+    }
+    Solid {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+          }
+          geometry Box {
+            size 0.2 0.1 0.05
+          }
+        }
+      ]
+      name "body"
+    }
+  ]
+  name "four_wheeled_robot"
+  controller "four_wheeled_collision_avoidance"
+  controllerArgs [
+    ""
+  ]
+}

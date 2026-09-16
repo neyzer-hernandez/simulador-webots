@@ -1,0 +1,182 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "dumbbell"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.21339882768756543 0.34845956040599546 0.9127085378713365 0.9141966770750538
+  position -1.3051071688334015 -1.0539259254983537 0.6418896589009316
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+WoodenBox {
+  translation -0.326357 -0.341695 0.0500021
+  rotation 0 1 0 4.692820414042842e-06
+  name "wooden box(4)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.3 -0.34 0.05
+  rotation 0 1 0 4.692820414042842e-06
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.35 0.32 0.0500008
+  rotation 0 1 0 4.692820414042842e-06
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.33 0.26 0.0500001
+  rotation 0 -1 0 -5.307179586466759e-06
+  size 0.1 0.1 0.1
+}
+Solid {
+  translation 0 0.47 0.05
+  rotation 1 0 0 -1.5707953071795862
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation -0.541009 -0.0460987 0.0627092
+  rotation -0.5709740567677163 0.5787131530736422 0.5823055151359806 -2.0944
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 0.53 -0.0100012 0.06
+  rotation -0.5773489144741784 0.577350914473882 0.577350978618431 -2.094395307179586
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 1.37771e-07 -0.529318 0.0648236
+  rotation 0.9999999999944509 2.3581499999869142e-06 -2.353179999986942e-06 -1.5707953071795862
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.05
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 0 0 0.06
+  rotation 0 1 0 1.5708
+  children [
+    Pose {
+      translation 0 0 -0.05
+      children [
+        Shape {
+          geometry DEF G2 Sphere {
+            radius 0.03
+            subdivision 2
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.05
+      children [
+        Shape {
+          geometry DEF G1 Sphere {
+            radius 0.03
+            subdivision 2
+          }
+        }
+      ]
+    }
+    Shape {
+      geometry DEF G0 Cylinder {
+        height 0.1
+        radius 0.01
+      }
+    }
+  ]
+  name "dumbbell"
+  contactMaterial "dumbbell"
+  boundingObject Group {
+    children [
+      Shape {
+        geometry USE G2
+      }
+      Shape {
+        geometry USE G1
+      }
+      Shape {
+        geometry USE G0
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 2
+    centerOfMass [
+      0 0 0.01
+    ]
+    inertiaMatrix [
+      1 1 1
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
+}
